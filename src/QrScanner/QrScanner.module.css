@@ -1,0 +1,21 @@
+.video {
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  transform: scaleX(-1) translateX(50%) !important;
+}
+
+.video.full-width {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+}

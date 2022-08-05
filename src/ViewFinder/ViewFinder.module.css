@@ -1,0 +1,49 @@
+.viewFinder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+  z-index: 1;
+  box-shadow: 0 0 0 100vw var(--outer-color);
+  border-radius: var(--border-radius);
+}
+
+.viewFinder:before,
+.viewFinder:after,
+.viewFinder > div:first-of-type:before,
+.viewFinder > div:first-of-type:after {
+  position: absolute;
+  width: var(--length);
+  height: var(--length);
+  border-color: var(--border-color);
+  border-style: solid;
+  content: ' ';
+}
+
+.viewFinder:before {
+  top: 0;
+  left: 0;
+  border-width: var(--width) 0px 0 var(--width);
+  border-radius: var(--border-radius) 0 0 0;
+}
+
+.viewFinder:after {
+  top: 0;
+  right: 0;
+  border-width: var(--width) var(--width) 0 0;
+  border-radius: 0 var(--border-radius) 0 0;
+}
+.viewFinder > div:first-of-type:before {
+  bottom: 0;
+  right: 0;
+  border-width: 0 var(--width) var(--width) 0;
+  border-radius: 0 0 var(--border-radius) 0;
+}
+.viewFinder > div:first-of-type:after {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 var(--width) var(--width);
+  border-radius: 0 0 0 var(--border-radius);
+}
