@@ -5,15 +5,15 @@ import { ViewFinderProps } from '../types/index';
 const ViewFinder: React.FC<ViewFinderProps> = ({
   outerColor = '#00000000',
   strokeWidth = '3px',
-  borderColor = '#000',
+  strokeColor = '#000000',
   radius = '5px',
-  length = '40px'
+  strokeLength = '40px'
 }) => {
   const styleVars = {
-    '--border-color': borderColor,
+    '--border-color': strokeColor,
     '--border-radius': radius,
     '--width': strokeWidth,
-    '--length': length,
+    '--strokeLength': strokeLength,
     '--outer-color': outerColor
   } as React.CSSProperties;
 

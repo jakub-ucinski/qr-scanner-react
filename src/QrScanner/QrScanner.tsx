@@ -25,7 +25,8 @@ export const QrScanner: React.FC<QrScannerProps> = (props) => {
     color: props.scanConfig?.qrColor,
     onResult: props.onResult,
     onError: props.onError,
-    maxScansPerSecond: props.scanConfig?.maxScansPerSecond
+    maxScansPerSecond: props.scanConfig?.maxScansPerSecond,
+    cameraPreference: props.scanConfig?.cameraPreference
   };
 
   useScanner(vid, scannerSettings);

@@ -12,7 +12,8 @@ const useScanner: UseScanner = (
     maxScansPerSecond = 5,
     onError = (error): void => {
       console.log(error);
-    }
+    },
+    cameraPreference = 'environment'
   }
 ) => {
   const inversion =
@@ -26,7 +27,8 @@ const useScanner: UseScanner = (
     if (vid.current) {
       qrScanner = new QrScanner(vid.current, onResult, {
         onDecodeError: onError,
-        maxScansPerSecond
+        maxScansPerSecond,
+        preferredCamera: cameraPreference
       });
 
       if (!QrScanner.hasCamera()) {

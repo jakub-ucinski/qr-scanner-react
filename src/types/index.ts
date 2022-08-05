@@ -3,23 +3,19 @@ import QrScanner from 'qr-scanner';
 
 export interface QrScannerProps {
   viewFinderConfig?: ViewFinderConfig;
-  onResult?: (result: QrScanner.ScanResult) => void;
-  onError?: (error: ScanError) => void;
+  onResult?: ResultHandler;
+  onError?: ErrorHandler;
   styles?: QrScannerStyles;
-  scanConfig?: {
-    qrColor?: QrColor;
-    maxScansPerSecond?: number;
-    cameraPreference?: CameraPreference;
-  };
+  scanConfig?: ScanConfig;
   'full-width'?: boolean;
 }
 
 export interface ViewFinderProps {
   outerColor?: string;
   strokeWidth?: string;
-  borderColor?: string;
+  strokeColor?: string;
   radius?: string;
-  length?: string;
+  strokeLength?: string;
 }
 
 export interface ViewFinderConfig extends ViewFinderProps {
@@ -32,11 +28,19 @@ export interface QrScannerStyles {
   videoContainer?: CSSProperties;
   container?: CSSProperties;
 }
+
+export interface ScanConfig {
+  qrColor?: QrColor;
+  maxScansPerSecond?: number;
+  cameraPreference?: CameraPreference;
+}
+
 export interface ScannerSettings {
   color?: QrColor;
-  onResult?: (result: QrScanner.ScanResult) => void;
-  onError?: (error: ScanError) => void;
+  onResult?: ResultHandler;
+  onError?: ErrorHandler;
   maxScansPerSecond?: number;
+  cameraPreference?: CameraPreference;
 }
 
 export type QrColor = 'dark' | 'light' | 'both';
@@ -49,3 +53,6 @@ export type UseScanner = (
 
 export type ScanResult = QrScanner.ScanResult;
 export type ScanError = Error | string;
+
+export type ResultHandler = (result: ScanResult) => void;
+export type ErrorHandler = (error: ScanError) => void;
